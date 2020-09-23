@@ -1,0 +1,56 @@
+  Before we start I just want to say, You can not directly use this dll in any way.
+You don't reference it in a project nor do you try to call its sub or functions 
+from outside the dll. It is used by windows alone, and any calls made to it are made
+by the OS itself.
+
+Step 1: Compile the dll
+
+Step 2: Go into the register folder and either run the project
+        from the ide or compile it - doesn't matter
+        Click the register button.
+        What this does is retrieve the clsid of the dll and place
+        it in the appropiate places in the registry. (all files(*), folder, shortcuts)
+
+Step 3: Results should be immediate, but you may have to restart explorer
+        and / or reboot.
+        The menu item should show up in any right click menu from explorer.
+
+        This was written on win 98se, but there is no reason that i'm aware of
+        that it shouldn't work on any os with a shell32.dll version of 4.71 or higher.
+
+Playing with the code:
+
+        Make sure you run the register program and click unregister before
+        you recompile the dll - otherwise you'll probably get an access violation.
+
+        DO NOT compile and register this dll and then move or copy the folder to
+        another location and start playing with it from there without first removing
+        all references to it - see getting rid of it. This will cause multiple registry 
+        entries and we really don't want that. If multiple registry entries occur
+        an more than one physical copy of the dll exists you may end up registering
+        and unregistering the old dll. Meaning any code changes you make won't take
+        effect, because windows will be looking at the wrong dll. Or if more than one
+        physical copy don't exist but more than one id in the registry do - if the
+        wrong id gets registered the menu won't be added at all.
+
+        For those of you who can't figure out how to change the registered name of
+        the dll. Open ContextMenu.cls in notepad and look for Attribute VB_Description.
+        Change it and save it in notepad. 
+        NOTE: if you change this attribute, you will also have to change the register
+        program to reflect your change. Otherwise the program will not work or will 
+        register the wrong program.
+
+        Changing the scale mode of frmIcon will mess up all owner drawing!
+
+Getting rid of it:
+
+        1) Run the register program and click unregister.
+           This will remove the menu handler references in the registry.
+
+        2) Unregister the dll - if you don't know how to do this use the removal tool.
+           The removal tool will remove all references based on filepath.
+           It will also unregister the type library.
+           Otherwise you'll just be adding to the invalid references in VB's
+           Project / References list.
+
+           I may upload a removal tool for invalid references - we'll see.

@@ -1,0 +1,22 @@
+The problem with shortcuts:
+  
+Mostly lies in dragquerfile. 
+
+Case single file that is a shortcut:
+  dragqueryfile returns the path pointed to by shortcut.
+  no owner drawing occurs - handlemenumsg is not called
+
+Case multiple files and file with the focus is a shortcut:
+  dragqueryfile returns the path pointed to by the shortcut and that's ALL.
+  (only one file)
+  no owner drawing occurs - handlemenumsg is not called
+
+Case multiple files and file with the focus is not a shortcut:
+  dragqueryfile returns all the files and and shortcuts are represented as lnk files
+  instead of the path pointed to by the shortcut.
+
+In the cases of no owner drawing - the menus are left blank. (not good)
+
+My solution to this was to also register as a shortcut menu handler.
+It seems to work fine, but there is a failsafe in the code that 
+will disable owner drawing should the need arise.
