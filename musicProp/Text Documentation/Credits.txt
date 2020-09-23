@@ -1,0 +1,37 @@
+////////////////////////////////////////////////////////
+//// Credits for all code used and modified go to: /////
+////////////////////////////////////////////////////////
+
+*******************************************
+The actual owner drawing of text and icons:
+  used in Function HandleMenuMsgVB
+  MrBobo
+  http://www.Planet-Source-Code.com/vb/scripts/ShowCode.asp?txtCodeId=44758&lngWId=1
+
+*******************************************
+A good concept of context menus in general:
+  Ajay Kumar -openwith
+  http://www.geocities.com/ajay_bnl/downloads.htm?20052#
+ 
+******************************************** 
+Another good concept and great type library:
+  J. P. Hamilton - Shell Programming
+  I HIGHLY recommend looking here!
+  http://www.oreilly.com/catalog/vbshell/chapter/ch04.html
+  http://examples.oreilly.com/vbshell/vbshell_examples.zip
+
+*********************
+Another good concept:
+  Eduardo A. Morcillo - Shell Extensions
+  http://www.mvps.org/emorcillo/en/code/vb6/index.shtml
+
+*************
+Type Library: 
+  Myself for having to research and compile my own type library
+  to get an implementable version of IContextMenu3 - the main
+  message receiver (at least on my system)
+
+********************
+General I love this: 
+  Microsoft Visual C++ 
+  The edit / find in files function - I use the crap out of it - superfast!
